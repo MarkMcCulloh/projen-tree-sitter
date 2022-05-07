@@ -1,7 +1,7 @@
 const { javascript, SampleFile, JsonFile } = require("projen");
 const { JobPermission } = require("projen/lib/github/workflows-model");
 
-const GRAMMAR_NAME = "cool-lang";
+const GRAMMAR_NAME = "example";
 
 const project = new javascript.NodeProject({
   defaultReleaseBranch: "main",
@@ -23,14 +23,14 @@ new JsonFile(project, "jsconfig.json", {
 new SampleFile(project, "grammar.js", {
   contents: `\
 module.exports = grammar({
-  name: "cool-lang",
+  name: "${GRAMMAR_NAME}",
 
   rules: {
     // TODO: add the actual grammar rules
     source_file: ($) => repeat(choice($.identifier, ";")),
     identifier: ($) => /[a-z0-9]+/,
   },
-});  
+});
 `,
 });
 
