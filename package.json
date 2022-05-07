@@ -9,6 +9,7 @@
     "eject": "npx projen eject",
     "generate": "npx projen generate",
     "package": "npx projen package",
+    "parse-test": "npx projen parse-test",
     "post-compile": "npx projen post-compile",
     "post-upgrade": "npx projen post-upgrade",
     "pre-compile": "npx projen pre-compile",

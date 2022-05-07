@@ -40,11 +40,21 @@ new SampleFile(project, "queries/highlights.scm", {
 `,
 });
 
+new SampleFile(project, "examples/test.example", {
+  contents: `\
+just;some;identifiers;
+`,
+});
+
 project.addTask("generate", {
   exec: "tree-sitter generate",
 });
 
 project.testTask.reset("tree-sitter test");
+
+project.addTask("parse-test", {
+  exec: "tree-sitter parse examples/**/*.example",
+});
 
 project.addFields({
   // https://tree-sitter.github.io/tree-sitter/syntax-highlighting#language-configuration

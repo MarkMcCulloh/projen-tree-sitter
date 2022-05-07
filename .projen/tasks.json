@@ -118,6 +118,14 @@
         }
       ]
     },
+    "parse-test": {
+      "name": "parse-test",
+      "steps": [
+        {
+          "exec": "tree-sitter parse examples/**/*.example"
+        }
+      ]
+    },
     "post-compile": {
       "name": "post-compile",
       "description": "Runs after successful compilation"
