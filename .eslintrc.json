@@ -1,0 +1,40 @@
+{
+  "root": true,
+  "extends": [
+    "eslint:recommended"
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": "error",
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_|^\\$$"
+      }
+    ]
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "ignorePatterns": [
+    "!.projenrc.js"
+  ],
+  "env": {
+    "commonjs": true
+  },
+  "globals": {
+    "grammar": "readonly",
+    "repeat": "readonly",
+    "repeat1": "readonly",
+    "seq": "readonly",
+    "prec": "readonly",
+    "choice": "readonly",
+    "optional": "readonly",
+    "token": "readonly",
+    "field": "readonly",
+    "alias": "readonly",
+    "require": "readonly"
+  }
+}

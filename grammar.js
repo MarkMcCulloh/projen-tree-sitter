@@ -1,8 +1,9 @@
 module.exports = grammar({
-  name: "YOUR_LANGUAGE_NAME",
+  name: "cool-lang",
 
   rules: {
     // TODO: add the actual grammar rules
-    source_file: ($) => "hello",
+    source_file: ($) => repeat(choice($.identifier, ";")),
+    identifier: ($) => /[a-z0-9]+/,
   },
 });

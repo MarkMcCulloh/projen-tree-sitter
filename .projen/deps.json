@@ -1,6 +1,14 @@
 {
   "dependencies": [
     {
+      "name": "eslint",
+      "type": "build"
+    },
+    {
+      "name": "eslint-plugin-prettier",
+      "type": "build"
+    },
+    {
       "name": "jest-junit",
       "version": "^13",
       "type": "build"
@@ -17,6 +25,10 @@
     {
       "name": "npm-check-updates",
       "version": "^12",
+      "type": "build"
+    },
+    {
+      "name": "prettier",
       "type": "build"
     },
     {
