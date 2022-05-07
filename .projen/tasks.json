@@ -98,6 +98,14 @@
         }
       ]
     },
+    "generate": {
+      "name": "generate",
+      "steps": [
+        {
+          "exec": "tree-sitter generate"
+        }
+      ]
+    },
     "package": {
       "name": "package",
       "description": "Creates the distribution package",
@@ -151,7 +159,7 @@
       "description": "Run tests",
       "steps": [
         {
-          "exec": "jest --passWithNoTests --all --updateSnapshot"
+          "exec": "tree-sitter test"
         }
       ]
     },

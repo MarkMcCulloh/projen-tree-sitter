@@ -28,4 +28,10 @@ module.exports = grammar({
 `,
 });
 
+project.addTask('generate', {
+  exec: 'tree-sitter generate'
+});
+
+project.testTask.reset('tree-sitter test');
+
 project.synth();
