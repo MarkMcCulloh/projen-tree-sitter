@@ -11,6 +11,10 @@
       "type": "build"
     },
     {
+      "name": "nan",
+      "type": "build"
+    },
+    {
       "name": "npm-check-updates",
       "version": "^12",
       "type": "build"
@@ -22,6 +26,10 @@
     {
       "name": "standard-version",
       "version": "^9",
+      "type": "build"
+    },
+    {
+      "name": "tree-sitter-cli",
       "type": "build"
     }
   ],

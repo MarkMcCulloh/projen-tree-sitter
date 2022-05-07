@@ -1,11 +1,31 @@
-const { javascript } = require("projen");
+const { javascript, SampleFile, JsonFile } = require("projen");
+
 const project = new javascript.NodeProject({
   defaultReleaseBranch: "main",
   name: "tree-sitter-test",
-
-  // deps: [],                /* Runtime dependencies of this module. */
-  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  // devDeps: [],             /* Build dependencies for this module. */
-  // packageName: undefined,  /* The "name" in package.json. */
+  devDeps: ["tree-sitter-cli", "nan"],
 });
+
+new JsonFile(project, "jsconfig.json", {
+  obj: {
+    compilerOptions: {
+      checkJs: true,
+    },
+    include: ["*.js", "node_modules/tree-sitter-cli/dsl.d.ts"],
+  },
+});
+
+new SampleFile(project, "grammar.js", {
+  contents: `\
+module.exports = grammar({
+  name: "YOUR_LANGUAGE_NAME",
+
+  rules: {
+    // TODO: add the actual grammar rules
+    source_file: ($) => "hello",
+  },
+});
+`,
+});
+
 project.synth();
