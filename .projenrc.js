@@ -46,6 +46,23 @@ just;some;identifiers;
 `,
 });
 
+new SampleFile(project, "test/corpus/test.example", {
+  contents: `\
+=====
+Example Test
+=====
+
+just;some;identifiers;
+
+---
+
+(source_file
+  (identifier)
+  (identifier)
+  (identifier))
+`,
+});
+
 project.addTask("generate", {
   exec: "tree-sitter generate",
 });
@@ -53,13 +70,17 @@ project.addTask("generate", {
 project.testTask.reset("tree-sitter test");
 
 project.addTask("parse-test", {
-  exec: "tree-sitter parse examples/**/*.example",
+  exec: "tree-sitter parse test/**/*.example",
 });
 
 project.addFields({
+  main: "bindings/node",
+
   // https://tree-sitter.github.io/tree-sitter/syntax-highlighting#language-configuration
   "tree-sitter": {
     scope: `source.${GRAMMAR_NAME}`,
+    "file-types": ["example"],
+    highlights: ["queries/highlights.scm"],
   },
 });
 

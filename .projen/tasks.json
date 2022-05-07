@@ -122,7 +122,7 @@
       "name": "parse-test",
       "steps": [
         {
-          "exec": "tree-sitter parse examples/**/*.example"
+          "exec": "tree-sitter parse test/**/*.example"
         }
       ]
     },

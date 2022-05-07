@@ -1,0 +1,12 @@
+=====
+Example Test
+=====
+
+just;some;identifiers;
+
+---
+
+(source_file
+  (identifier)
+  (identifier)
+  (identifier))
