@@ -1,9 +1,18 @@
 module.exports = grammar({
   name: "example",
 
+  extras: ($) => [$.comment, /[\\s\\p]/],
+
   rules: {
-    // TODO: add the actual grammar rules
+    // TODO Put your rules here
+
+    // Entire file is simply identifiers separated by semicolons
     source_file: ($) => repeat(choice($.identifier, ";")),
-    identifier: ($) => /[a-z0-9]+/,
+
+    // Alphanumeric identifier
+    identifier: ($) => /[a-zA-Z0-9]+/,
+
+    // Simple single-line comment
+    comment: ($) => token(seq("//", /.*/)),
   },
 });

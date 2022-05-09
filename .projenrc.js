@@ -25,10 +25,20 @@ new SampleFile(project, "grammar.js", {
 module.exports = grammar({
   name: "${GRAMMAR_NAME}",
 
+  // Comments and whitespace can appear anywhere
+  extras: ($) => [$.comment, /[\\s\\p]/],
+
   rules: {
-    // TODO: add the actual grammar rules
+    // TODO Put your rules here
+
+    // Entire file is simply identifiers separated by semicolons
     source_file: ($) => repeat(choice($.identifier, ";")),
-    identifier: ($) => /[a-z0-9]+/,
+
+    // Alphanumeric identifier
+    identifier: ($) => /[a-zA-Z0-9]+/,
+
+    // Simple single-line comment
+    comment: ($) => token(seq("//", /.*/)),
   },
 });
 `,
@@ -37,12 +47,18 @@ module.exports = grammar({
 new SampleFile(project, "queries/highlights.scm", {
   contents: `\
 (identifier) @variable
+(comment) @comment  
 `,
 });
 
 new SampleFile(project, "examples/test.example", {
   contents: `\
-just;some;identifiers;
+just;
+
+some;
+
+// with a comment
+identifiers;  
 `,
 });
 
@@ -52,14 +68,31 @@ new SampleFile(project, "test/corpus/test.example", {
 Example Test
 =====
 
-just;some;identifiers;
+just;
+
+some;
+
+// with a comment
+identifiers;
+
 
 ---
 
 (source_file
   (identifier)
   (identifier)
-  (identifier))
+  (comment)
+  (identifier))  
+`,
+});
+
+new SampleFile(project, "highlight/test.example", {
+  contents: `\
+; Identifiers
+;-------
+
+cool;
+// <- variable  
 `,
 });
 
@@ -77,11 +110,13 @@ project.addFields({
   main: "bindings/node",
 
   // https://tree-sitter.github.io/tree-sitter/syntax-highlighting#language-configuration
-  "tree-sitter": {
-    scope: `source.${GRAMMAR_NAME}`,
-    "file-types": ["example"],
-    highlights: ["queries/highlights.scm"],
-  },
+  "tree-sitter": [
+    {
+      scope: `source.${GRAMMAR_NAME}`,
+      "file-types": ["example"],
+      highlights: ["queries/highlights.scm"],
+    },
+  ],
 });
 
 project.release.addJobs({
