@@ -1,7 +1,8 @@
 module.exports = grammar({
   name: "example",
 
-  extras: ($) => [$.comment, /[\\s\\p]/],
+  // Comments and whitespace can appear anywhere
+  extras: ($) => [$.comment, /[\s\p]/],
 
   rules: {
     // TODO Put your rules here
