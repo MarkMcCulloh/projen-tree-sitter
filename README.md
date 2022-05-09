@@ -1,4 +1,4 @@
-# Projen project for tree-sitter
+# Projen project for tree-sitter grammar
 
 Nothing to see here
 
