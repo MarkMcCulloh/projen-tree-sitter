@@ -86,7 +86,7 @@ identifiers;
 `,
 });
 
-new SampleFile(project, "highlight/test.example", {
+new SampleFile(project, "test/highlight/test.example", {
   contents: `\
 ; Identifiers
 ;-------
