@@ -12,12 +12,12 @@ export interface TreeSitterGrammarProjectOptions extends NodeProjectOptions {
  * @pjid tree-sitter-grammar
  */
 export class TreeSitterGrammarProject extends NodeProject {
-  constructor(props: TreeSitterGrammarProjectOptions) {
+  constructor(options: TreeSitterGrammarProjectOptions) {
     super({
-      ...props,
+      ...options,
     });
 
-    const grammarName = props.grammarName ?? "example";
+    const grammarName = options.grammarName ?? "example";
 
     this.addDevDeps(
       "eslint",

@@ -1787,16 +1787,16 @@ Creates a tree-sitter grammar.
 ```typescript
 import { TreeSitterGrammarProject } from 'projen-tree-sitter'
 
-new TreeSitterGrammarProject(props: TreeSitterGrammarProjectOptions)
+new TreeSitterGrammarProject(options: TreeSitterGrammarProjectOptions)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#projen-tree-sitter.TreeSitterGrammarProject.Initializer.parameter.props">props</a></code> | <code><a href="#projen-tree-sitter.TreeSitterGrammarProjectOptions">TreeSitterGrammarProjectOptions</a></code> | *No description.* |
+| <code><a href="#projen-tree-sitter.TreeSitterGrammarProject.Initializer.parameter.options">options</a></code> | <code><a href="#projen-tree-sitter.TreeSitterGrammarProjectOptions">TreeSitterGrammarProjectOptions</a></code> | *No description.* |
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="projen-tree-sitter.TreeSitterGrammarProject.Initializer.parameter.props"></a>
+##### `options`<sup>Required</sup> <a name="options" id="projen-tree-sitter.TreeSitterGrammarProject.Initializer.parameter.options"></a>
 
 - *Type:* <a href="#projen-tree-sitter.TreeSitterGrammarProjectOptions">TreeSitterGrammarProjectOptions</a>
 
