@@ -7,9 +7,9 @@ const project = new JsiiProject({
   repositoryUrl: "",
   name: "projen-tree-sitter",
   releaseToNpm: true,
-  projenDevDependency: false,
   peerDeps: ["projen"],
   projenrcTs: true,
+  repository: "https://github.com/MarkMcCulloh/projen-tree-sitter",
   eslintOptions: {
     dirs: ["src", ".projenrc.ts"],
     prettier: true,
