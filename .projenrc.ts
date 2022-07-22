@@ -3,13 +3,15 @@ import { JsiiProject } from "projen/lib/cdk";
 const project = new JsiiProject({
   defaultReleaseBranch: "main",
   author: "Mark McCulloh",
-  authorAddress: "",
-  repositoryUrl: "",
+  authorAddress: "markm@monada.co",
+  repositoryUrl: "https://github.com/MarkMcCulloh/projen-tree-sitter.git",
+
+  jest: false,
+
   name: "projen-tree-sitter",
   releaseToNpm: true,
   peerDeps: ["projen"],
   projenrcTs: true,
-  repository: "https://github.com/MarkMcCulloh/projen-tree-sitter",
   eslintOptions: {
     dirs: ["src", ".projenrc.ts"],
     prettier: true,
